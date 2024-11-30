@@ -9,4 +9,4 @@ class Resenia(models.Model):
     created_at = models.DateField( auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return self.book 
+        return self.book.title + ' - '+ str(self.rating)

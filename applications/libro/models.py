@@ -1,6 +1,6 @@
 from django.db import models
 from applications.autor.models import Autor, Genero
-
+from .managers import *
 # Create your models here.
 
 class Libro(models.Model):
@@ -10,6 +10,10 @@ class Libro(models.Model):
     genre = models.ForeignKey(Genero, on_delete=models.CASCADE)
     synopsis = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.title + '-'+ self.autor
+    objects = LibroManager()
     
+    def __str__(self):
+        return self.title 
+    
+
+

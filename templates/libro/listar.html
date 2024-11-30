@@ -1,0 +1,17 @@
+
+<h1>Listar libros</h1>
+
+<form method="GET">{% csrf_token %}
+
+    <input type="text" id="kword" name="kword" placeholder="Buscar">
+    <button type="submit">Buscar</button>
+
+</form>
+
+
+<ul>
+    {% for libro in lista_libros %}
+        <li> {{ libro }}</li>
+    {% endfor %}
+</ul>
+
