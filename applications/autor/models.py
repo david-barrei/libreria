@@ -1,5 +1,5 @@
 from django.db import models
-
+from .managers import LibroManager
 # Create your models here.
 
 class Autor(models.Model):
@@ -14,6 +14,7 @@ class Autor(models.Model):
 class Genero(models.Model):
     name = models.CharField( max_length=20)
 
+    objects = LibroManager()
     def __str__(self):
         return self.name 
     

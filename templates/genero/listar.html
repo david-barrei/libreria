@@ -10,9 +10,10 @@
 
 
 <ul>
-    {% for  libro in lista_libros %}
-    <li><strong> {{ libro.title }} </strong>{{ libro.genre.name}} </li>
-    
+    {% for genero in generos %}
+        <li> {{ genero.name }}</li>
+        <li> {{ genero.publication}}</li>
+        
     {% endfor %}
 </ul>
 

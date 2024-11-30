@@ -7,10 +7,10 @@ class Libro(models.Model):
     title = models.CharField( max_length=50)
     publication = models.DateField(blank=False)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
-    genre = models.ForeignKey(Genero, on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genero, on_delete=models.CASCADE, related_name='libro_genero')
     synopsis = models.CharField(max_length=100)
 
-    objects = LibroManager()
+    objects = LibroManager() 
     
     def __str__(self):
         return self.title 

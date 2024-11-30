@@ -10,13 +10,11 @@ class LibroManager(models.Manager):
         return resultado
 
 
-
-    def libros_genero(self):
-
-        resultado = self.values(
-            'libro'
-        ).annotate(
-            num_prestamos= Count('libro'),
-            
+    
+    def listar_libros_genero(self,kword):#Filtrar libros por genero
+        resultado = self.filter(
+            genre__name__icontains = kword,
         )
+        
         return resultado
+   
