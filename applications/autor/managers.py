@@ -10,3 +10,8 @@ class LibroManager(models.Manager):
         )
         
         return resultado
+
+
+    def autores_pais(self,kword):
+        resultado = self.filter(country__iexact=kword)
+        return resultado
