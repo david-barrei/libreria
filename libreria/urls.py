@@ -6,6 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('',include('applications.libro.urls')),
     re_path('',include('applications.autor.urls')),
+    re_path('',include('applications.resenia.urls')),
 
 ]
 
