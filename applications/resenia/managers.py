@@ -12,3 +12,15 @@ class ReseniaManager(models.Manager):
             promedio_calificacion = Avg('rating'),
         )
         return resultado
+    
+    def resenia_libro(self,libro_id):
+
+        resultado = self.filter(
+            book__id =libro_id
+        ).aggregate(
+            promedio_resenias = Count('id'),
+        )
+        return resultado
+
+
+
