@@ -23,7 +23,7 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+                        <h1 class="fw-bolder mb-1">Bienvenido a libreria studio</h1>
                         <!-- Post meta content-->
                         <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
                         <!-- Post categories-->
@@ -90,12 +90,25 @@
                 <!-- Search widget-->
                 <div class="card mb-4">
                     <div class="card-header">Search</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                        </div>
-                    </div>
+<div class="card-body">
+    <form method="GET" action="{% url 'libros' %}">
+        <div class="input-group">
+            <!-- Input para el término de búsqueda -->
+            <input class="form-control" 
+                   type="text" 
+                   name="query"  
+                   placeholder="Enter search term..." 
+                   aria-label="Enter search term..." 
+                   aria-describedby="button-search" 
+                   required />
+            
+            <!-- Botón para enviar el formulario -->
+            <button class="btn btn-primary" id="button-search" type="submit">
+                Go!
+            </button>
+        </div>
+    </form>
+</div>
                 </div>
                 <!-- Categories widget-->
                 <div class="card mb-4">
