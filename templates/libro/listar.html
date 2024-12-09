@@ -1,18 +1,14 @@
-{% extends 'base.html' %}
+
 <h1>Listar libros</h1>
+<p> Buscaste: "{{ kword }}" </p>
 
-<form method="GET">{% csrf_token %}
-
-    <input type="text" id="kword" name="kword" placeholder="Buscar">
-    <button type="submit">Buscar</button>
-
-</form>
 
 
 <ul>
     {% for  libro in lista_libros %}
-    <li><strong> {{ libro.title }} </strong>{{ libro.genre.name}} </li>
-    
+    <li><strong> {{ libro.title }} </strong>{{ libro.autor.first_name }} </li>
+    {% empty %}
+        <p>No se encontraron resultados para tu búsqueda.</p>
     {% endfor %}
 </ul>
 

@@ -10,14 +10,19 @@ from applications.autor.models import Autor
 
 class ListLibros(ListView):
 
-    context_object_name = 'lista_libros'
+    context_object_name = 'listar_libros'
     template_name = 'libro/listar.html'
 
     def get_queryset(self):
 
         palabra_clave = self.request.GET.get('kword','') 
-        return Libro.objects.libros_autores(palabra_clave)
+        return Libro.objects.filter(title__icontains=palabra_clave)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['kword'] = self.request.GET.get('kword', '')  # Para mostrar el término de búsqueda actual
+        return context
+    
 
 class Genero_libro(ListView):
     context_object_name = 'lista_libros'

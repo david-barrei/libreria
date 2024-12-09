@@ -6,7 +6,7 @@ class LibroManager(models.Manager):
 
     def libros_autores(self,kword):
 
-        resultado = self.filter(autor__id__icontains=kword)
+        resultado = self.filter(title__icontains=kword)
         return resultado
 
 
