@@ -1,12 +1,15 @@
 
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView,TemplateView
 
 from .models import Libro
 from .models import Genero
 from applications.autor.models import Autor
 # Create your views here.
+
+class Home(TemplateView):
+    template_name = 'base.html'
 
 class ListLibros(ListView):
 
