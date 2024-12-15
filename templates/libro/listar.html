@@ -5,6 +5,15 @@
 
 <p> Buscaste: "{{ kword }}" </p>
 
+<ul>
+    {% for  libro in listar_libros %}
+    <h2 > Titulo: <span class="badge bg-info"> {{ libro.title }} </span></h2>
+    {{ libro.autor.first_name }} 
+    {% empty %}
+        <p>No se encontraron resultados para tu búsqueda.</p>
+    {% endfor %}
+</ul>
+
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
@@ -21,13 +30,6 @@
       <a href="#" class="card-link">Another link</a>
     </div>
   </div>
-<ul>
-    {% for  libro in listar_libros %}
-    <h2 > Titulo: <span class="badge bg-info"> {{ libro.title }} </span></h2>
-    {{ libro.autor.first_name }} 
-    {% empty %}
-        <p>No se encontraron resultados para tu búsqueda.</p>
-    {% endfor %}
-</ul>
+
 
 {% endblock content %}
